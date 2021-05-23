@@ -46,17 +46,26 @@
     transition: 500ms;
 }
 
-.users-table {
+.user {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 40px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+.card-body p{
+    text-align: center;
 }
 
 .footer {
     width: 100%;
-    height: 60px;
+    max-height: 70px;
+    padding: 20px;
+    text-align: center;
     background-color: #305939;
     color: #FFF;
     display: flex;

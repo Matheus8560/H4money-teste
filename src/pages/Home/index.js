@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { MDBBtn, MDBIcon, MDBInput, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader } from 'mdbreact';
 import { NotificationManager } from 'react-notifications';
 import { BiArrowBack, BiPlus } from 'react-icons/bi';
 
@@ -9,13 +10,22 @@ import api from '../../services/api';
 
 export default function Login({history}) {
     
+    const [ modalRegister, setModalRegister ] = useState(false)
+    const [ modalEdit, setModalEdit ] = useState(false)
+    const [ modalDelete, setModalDelete ] = useState(false)
     const [ loading, setLoading ] = useState(true);
     const [ field, setField ] = useState({
         name: '',
         last_name: '',
+        tel: '',
         email: ''
     });
-    const [ users, setUses ] = useState([])
+    const [ user, setUser ] = useState({
+        name: '',
+        last_name: '',
+        tel: '',
+        email: ''
+    });
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -24,6 +34,12 @@ export default function Login({history}) {
         setTimeout(() => setLoading(false), 500)
     }, [history]);
     
+    const handleChange = (event) => {
+        const target = event.target;
+        const {name, value} = target;
+
+        setField({ ...field, [name]:value })
+    }
 
     const handleExit = () => {
         history.push('/')
@@ -50,6 +66,10 @@ export default function Login({history}) {
         }       
     }
 
+    function openModalRegister(){
+        setModalRegister(!modalRegister);
+    }
+
     if(loading){
         return <Loader />
     } else {
@@ -69,12 +89,67 @@ export default function Login({history}) {
                     </div>
 
                     <div className="user">
+
+                        {(user.name === '') ? 
+                            <div className="card">
+                                <div className="card-header d-flex justify-content-center">
+                                    <h2>Usuario Cadastrado</h2>
+                                </div>
+                                <div className="card-body">
+                                    <p >Nenhum Usuario Cadastrado!</p>
+                                    <button className="btn-custom">
+                                        <BiPlus /> 
+                                        <p className="ml-1 mb-0" onClick={() => openModalRegister()}>Cadastar Usuario</p>
+                                    </button>
+                                </div>
+                                
+                            </div>
+                            :
+                            <div>
+                                <div className="card">
+                                    <div className="card-header d-flex justify-content-center">
+                                        <h2>Usuario Cadastrado</h2>
+                                    </div>
+                                    <div className="card-body">
+                                        <div>
+                                            <strong>Nome: </strong>
+                                            <span>{user.name}</span>
+                                        </div>
+                                        <div>
+                                            <strong>Sobrenome: </strong>
+                                            <span>{user.last_name}</span>
+                                        </div>
+                                        <div>
+                                            <strong>Telefone: </strong>
+                                            <span>{user.tel}</span>
+                                        </div>
+                                        <div>
+                                            <strong>Email: </strong>
+                                            <span>{user.email}</span>
+                                        </div>
+                                        <button className="btn-custom">
+                                            <BiPlus /> <p className="ml-1 mb-0">Cadastar Usuario</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        
                         
                     </div>
                 </div>
-
+                <MDBModal isOpen={modalRegister} toggle={() => openModalRegister()}>
+                                    <MDBModalHeader toggle={() => openModalRegister()}>MDBModal title</MDBModalHeader>
+                                    <MDBModalBody>
+                                    (...)
+                                    </MDBModalBody>
+                                    <MDBModalFooter>
+                                        <MDBBtn color="secondary" onClick={() => openModalRegister()}>Close</MDBBtn>
+                                        <MDBBtn color="primary">Save changes</MDBBtn>
+                                    </MDBModalFooter>
+                                </MDBModal>
                 <div className="footer">
-                    <p className="mb-0">Os dados da tabela são estaticos, apenas visuais.</p>
+                    <p className="mb-0">Esta interface tem o objetivo de testar as requisições feitas ao reqres.in</p>
                 </div>
             </div>
         )

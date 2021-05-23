@@ -7,7 +7,7 @@ import './styles.css';
 import Loader from '../../components/Loader';
 import api from '../../services/api';
 
-export default function Login({history}) {
+export default function Login({history}) {  
 
     const [ loading, setLoading ] = useState(true);
     const [ field, setField ] = useState({
@@ -105,8 +105,8 @@ export default function Login({history}) {
                     </div>
                     
                     <button type="submit" className="btn-submit" onClick={handleSubmit}>Entrar</button>
-                
                 </form>
+                    
             </div>
         )
     }
