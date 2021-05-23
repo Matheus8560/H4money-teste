@@ -19,11 +19,11 @@ Para realizar login forneça um email definido da [Reqres.in](https://reqres.in/
 
 <p align="center">
   <img src="https://github.com/Matheus8560/H4money-teste/blob/master/screenshots/login.png" width=400 height=200/>
-  <img src="https://github.com/Matheus8560/H4money-teste/blob/master/screenshots/usuario_cadastrado.png" width=400 height=200/>
+  <img src="https://github.com/Matheus8560/H4money-teste/blob/master/screenshots/cadastro.png" width=400 height=200/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/Matheus8560/H4money-teste/blob/master/screenshots/cadastro.png" width=400 height=200/>
+  <img src="https://github.com/Matheus8560/H4money-teste/blob/master/screenshots/usuario_cadastrado.png" width=400 height=200/>
 </p>
 
 # Instalação
