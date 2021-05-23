@@ -33,8 +33,8 @@ OBS.: É necessário que o [`NPM & Node`](https://nodejs.org/en/) e o [`Git`](ht
 Com os itens cidados acima intalado, basta executar este comandodos em seu teminal na pasta em que você desejar:
 
 <ul>
-    <li>`git clone https://github.com/Matheus8560/H4money-teste.git`</li>
-    <li>`cd H4money-teste`</li>
-    <li>`npm install`</li>
-    <li>`npm start`</li>
+    <li>git clone https://github.com/Matheus8560/H4money-teste.git</li>
+    <li>cd H4money-teste</li>
+    <li>npm install</li>
+    <li>npm start</li>
 </ul>
