@@ -34,13 +34,14 @@ export default function Login({history}) {
             Notifications('error', 'Preencha todos os campos!');
             setLoading(false);
         } else {
-            api.post('/login', field)
+            await api.post('/register', field)
                 .then(function (response) {
                     console.log(response);
                     localStorage.setItem('token', response.data.token)
                     history.push('/home')
                 })
-                .catch(function () {
+                .catch(function (erro) {
+                    console.log(erro);
                     Notifications('error', 'Usuario e/ou senha inválidos!');
                     setLoading(false);
                 })
@@ -80,7 +81,7 @@ export default function Login({history}) {
                     </div>
 
                     <div className="w-100 form-group row">
-                        <div className="col-12 p-0">
+                        <div className="col-12 p-0 mb-3">
                             <MDBInput 
                                 outline 
                                 className="form-control"

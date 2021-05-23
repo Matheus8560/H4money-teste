@@ -2,6 +2,7 @@
     margin: 0;
     width: 100%;
     height: 100vh;
+    min-height: 500px;
     background-color: #305939 !important;
     display: flex;
     justify-content: center;
@@ -19,6 +20,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+@media(max-width: 750px){
+    .content-login{
+        width: 85%;
+        padding: 25px 35px;
+    }
 }
 
 .title {
@@ -39,6 +46,7 @@
     background-color: #305939;
     transition: 1000ms;
     color: #FFF;
+    outline: none !important;
 }
 .btn-submit:hover{
     background-color: #28a745;
